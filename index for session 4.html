@@ -1,0 +1,64 @@
+<script>
+
+window.onload = function () {
+	document.getElementById("currentValue").innerHTML = display(list);
+}
+
+function display( list ) {
+	for(var i = 0; i<5;i++)
+		document.write(list[i].name + " :<br>description :" + list[i].description + "<br>" + "cost :" + list[i].cost + "<br>" + "quantity :" + list[i].quantity + "<br><br><br>");
+}
+var mac={
+	name  		: "mac",
+	description : "the best computer!",
+	cost        : 2500,
+	quantity    : 4
+}
+
+var windows={
+	name 		: "windows",
+	description : "we should be the best computer!",
+	cost  		: 2800,
+	quantity 	: 5
+}
+
+var dell={
+	name 		: "dell",
+	description : "Give you best experience and in Windows system",
+	cost        : 2000,
+	quantity    : 2
+}
+
+var hp={
+	name  		: "hp",
+	description : "Have good costomers review",
+	cost        : 1800,
+	quantity    : 6
+}
+
+var acer={
+	name		: "acer",
+	description : "Good price and also good computer!",
+	cost  		: 1500,
+	quantity	: 7
+}
+
+var list = new Array(mac, windows, dell, hp, acer);
+
+var cost_all = 0;
+
+for(var x=0; x<5; x++)
+	cost_all += list[x].cost * list[x].quantity;
+
+
+</script>
+<!-- ====================================================================== -->
+<style>
+.current-value {
+	font-weight:bold;
+	font-size: 20pt
+}
+</style>
+<!-- ====================================================================== -->
+Current value: <span class="current-value" id="currentValue"> 50 </span>
+
