@@ -1,146 +1,64 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <base href = "http://localhost" />
-        <meta charset="UTF-8">
-	    <meta name="description" content="Ruijia Wang's resume">
-		<meta name="keywords" content="resume">
-		<meta author="Ruijia Wang">
-        <meta name="viewport"
-			  content="width=device-width, initial-scale=1.0">
-    <style>
+<script>
 
-    h2 {background-color: #f0f0f0; font-family: courier;  text-align: center; }
-    
-    p  {font-family: courier;}
+window.onload = function () {
+	document.getElementById("currentValue").innerHTML = display(list);
+}
 
-    table#t01   th {padding: 10px;font-family:Papyrus;background-color: #F5F5DC;color:#696969; }
-    table#t01   td {font-family: Verdana}
+function display( list ) {
+	for(var i = 0; i<5;i++)
+		document.write(list[i].name + " :<br>description :" + list[i].description + "<br>" + "cost :" + list[i].cost + "<br>" + "quantity :" + list[i].quantity + "<br><br><br>");
+}
+var mac={
+	name  		: "mac",
+	description : "the best computer!",
+	cost        : 2500,
+	quantity    : 4
+}
 
-    
+var windows={
+	name 		: "windows",
+	description : "we should be the best computer!",
+	cost  		: 2800,
+	quantity 	: 5
+}
 
-    
+var dell={
+	name 		: "dell",
+	description : "Give you best experience and in Windows system",
+	cost        : 2000,
+	quantity    : 2
+}
+
+var hp={
+	name  		: "hp",
+	description : "Have good costomers review",
+	cost        : 1800,
+	quantity    : 6
+}
+
+var acer={
+	name		: "acer",
+	description : "Good price and also good computer!",
+	cost  		: 1500,
+	quantity	: 7
+}
+
+var list = new Array(mac, windows, dell, hp, acer);
+
+var cost_all = 0;
+
+for(var x=0; x<5; x++)
+	cost_all += list[x].cost * list[x].quantity;
 
 
+</script>
+<!-- ====================================================================== -->
+<style>
+.current-value {
+	font-weight:bold;
+	font-size: 20pt
+}
+</style>
+<!-- ====================================================================== -->
+Current value: <span class="current-value" id="currentValue"> 50 </span>
 
-    </style>
-
-    <link rel="stylesheet" type="text/css" href="1.css">
-
-    </head>
-    <body>
-    	
-
-    	<table rules=none style="width:70%;text-align: center; font-family: Brush Script MT"  align="center">
-    		<tr>
-              <td colspan="3" style="text-align: center; font-size: 80px ;background-color:hsla(9, 100%, 64%, 0.8); color:#696969;">Resume</td>
-            </tr>
-            <tr>
-              <td colspan="3" style="background-color:hsla(9, 100%, 64%, 0.6);"><img src="1.jpeg" alt="me" style="max-width:20% ; "></td>
-    		</tr>
-            <tr>
-              <td colspan="3" style="font-size: 50px;background-color:hsla(9, 100%, 64%, 0.4);color:#696969"><i>Ruijia Wang</i></td>
-            </tr>
-    		<tr>
-    		  <td style="background-color:hsla(9, 100%, 64%, 0.2);color:#696969">1524 Hearst avenue</td>
-    		  <td style="background-color:hsla(9, 100%, 64%, 0.2);color:#696969">5106933331</td>
-              <td style="background-color:hsla(9, 100%, 64%, 0.2);color:#696969">ruijia.wang03@berkeley.edu</td>
-    		</tr>
-        </table>
-
-
-
-
-        <table id="t01" style="width: 70%;" align="center">
-
-  
-        
-        <tr>
-    	<th><b>SUMMARY<hr size="5"></b></th>
-    
-         <th><b>AWARDS<hr size="3"></b></th>
-
-    	</tr>
-
-        <tr>
-        
-        <td>
-    	Education before college in China, now working on a bachelor degree of computer science in UC Berkeley.<br>
-        Have a good knowledge of computer software. <br>
-        Master several computer languages. <br>
-        Participate in some contests about coding and receive some awards.<br>
-        Enable to speak Chinese and English, also know a little French.<br>
-        </td>
-        
-
-        <td>•   Receive national scholarship during one year in domestic university<br>
-           •   Honored mentioned in Mathematical Contest in Modeling, MCM</td>
-        
-        
-       
-      
-       </tr>
-
-       <tr>
-       
-        <th><b>EDUCATION<hr size="3"></b></th>
-    
-
-       </tr>
-       
-       <tr>
-
-        <td>Major in software engineering for one year in China. Now as a sophomore student in UC Berkeley working on the bachelor of computer science. Overall GPA 3.7. </td>
-
-        
-
-        </tr>
-    	
-        
-        <tr>
-           
-              <th><b>INTERESTS AND ACTIVITIES<hr size="3"></b></th>
-            <th><b>SKILLS<hr size="3"></b></th>
-           
-
-        </tr>
-
-        <tr>
-
-            <td align="top">
-            <ul style="list-style-type:disc">
-            <li>Enjoy coding and learning about the computer especially the field of the computer visualization.</li>
-            <li>The minister of department of studying in student union.</li>
-            <li>Co-leader in ACM team in domestic university.</li>
-            <li>Be honored as Head in MCM team in domestic university.</li>
-            <li>Good at basketball, tennis, football and swimming.</li>
-            <li>3 years experience of accordion and 2 years of trombone.</li>
-            </ul>
-       </td>
-           <td>
-           1.   Computer skills<br>
-           •    Master several computer languages such as c, c++, java. <br>
-           •    Enable to create normal website page using html, css and other similar languages.<br>
-           •    Working on ACM for half a year and enable to deal with complex algorithm problems.<br><br>
-
-           2.   Language ability <br>
-           •    Native speaker of Chinese.<br>
-           •    English as second language.<br>
-           •    Learn primary French for a year and pass the standard test in domestic college.<br></td>
-
-        </tr>
-
-    	</table>
-
-         <div style = "border : 1px solid red; margin: .1in .1in .1in .1in;" >
-         <form action = "http://localhost/echo.php" method = "post"> 
-          <table>
-             <tr><td> Name:  </td> <td><input type = "text" name = "name-field"></td></tr> 
-             <tr><td> Address: </td><td> <input type ="text" name = "address-field"></td></tr>
-           </table>
-          <input type = "submit">
-
-         </form>
-
-    </body>
-    </html>
