@@ -1,0 +1,109 @@
+<script>
+
+var mac={
+	name  		: "mac",
+	description : "the best computer!",
+	cost        : 2500,
+	totalCost  : 10000,
+	quantity    : 4
+}
+
+var windows={
+	name 		: "windows",
+	description : "we should be the best computer!",
+	cost  		: 2800,
+	totalCost   : 14000,
+	quantity 	: 5
+}
+
+var dell={
+	name 		: "dell",
+	description : "Give you best experience and in Windows system",
+	cost        : 2000,
+	totalCost   : 4000,
+	quantity    : 2
+}
+
+var hp={
+	name  		: "hp",
+	description : "Have good costomers review",
+	cost        : 1800,
+	totalCost   : 10800,
+	quantity    : 6
+}
+
+var acer={
+	name		: "acer",
+	description : "Good price and also good computer!",
+	cost  		: 1500,
+	totalCost   : 10500,
+	quantity	: 7
+}
+
+var list = new Array(mac, windows, dell, hp, acer);
+
+
+
+
+var sumCost = 0;
+for(var x=0; x<5; x++)
+	sumCost += list[x].totalCost;
+
+
+window.onload = function () {
+	document.getElementById("currentValue").innerHTML = display(list);
+}
+
+function display( list ) {
+	for(var i = 0; i<5;i++)
+		document.write(
+			          '<div style="text-align:center"><h2>'+ list[i].name + '</h2>'
+					+ "Description : " + list[i].description + "<br>" 
+					+ "Cost : " + list[i].cost + "<br>" 
+					+ 'TotalCost : <span id="totalcost' + i +'">' + list[i].totalCost + ' </span> <br>'
+					+ 'Quantity : <span id="quantity' + i +'">'+ list[i].quantity +' </span> <br><br>'
+					+ '<button type="button" onclick="amountandtotalChange('+i+', 1);"> + </button>'
+					+ '<button type="button" onclick="amountandtotalChange('+i+', -1);"> - </button> <br><br></div>');
+	document.write('<div style="text-align:center">TheWholeOrderCost : <span id="sumcost">' + sumCost + ' </span></div>');
+}
+
+function amountandtotalChange(index, amount){
+	list[index].quantity += amount;
+	if(list[index].quantity < 0){
+		list[index].quantity = 0;
+	}
+	list[index].totalCost += (amount * list[index].cost);
+	if(list[index].totalCost < 0){
+		list[index].totalCost = 0;
+	}
+	if(list[index].totalCost > 0){
+		sumCost += (amount * list[index].cost);
+	}
+	document.getElementById('quantity' + index).innerHTML = list[index].quantity;
+    document.getElementById('totalcost' + index).innerHTML = list[index].totalCost;
+    document.getElementById("sumcost").innerHTML = sumCost;
+
+}
+
+</script>
+<!-- ====================================================================== -->
+<style>
+.current-value {
+	font-weight:bold;
+	font-size: 20pt
+}
+
+div
+{
+text-align:center;
+border:2px solid #a1a1a1;
+padding:10px 40px; 
+background:#dddddd;
+width:350px;
+border-radius:25px;
+-moz-border-radius:25px; /* 老的 Firefox */
+}
+</style>
+<!-- ====================================================================== -->
+Current value: <span class="current-value" id="currentValue"> 50 </span>
+
