@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+	<html>
+		
+		<head>
+
+			<script>
+
+				var mac={
+					name  		: "mac",
+					description : "the best computer!",
+					cost        : 2500,
+					totalCost   : 2500,
+					quantity    : 1
+				}
+
+				var windows={
+					name 		: "windows",
+					description : "we should be the best computer!",
+					cost  		: 2800,
+					totalCost   : 14000,
+					quantity 	: 5
+				}
+
+				var dell={
+					name 		: "dell",
+					description : "Give you best experience and in Windows system",
+					cost        : 2000,
+					totalCost   : 4000,
+					quantity    : 2
+				}
+
+				var hp={
+					name  		: "hp",
+					description : "Have good costomers review",
+					cost        : 1800,
+					totalCost   : 10800,
+					quantity    : 6
+				}
+
+				var acer={
+					name		: "acer",
+					description : "Good price and also good computer!",
+					cost  		: 1500,
+					totalCost   : 10500,
+					quantity	: 7
+				}
+
+				var list = new Array(mac, windows, dell, hp, acer);
+
+				var sumCost = 0;
+				for(var x=0; x<5; x++)
+					sumCost += list[x].totalCost;
+
+
+				window.onload = function () {
+					document.getElementById("currentList").innerHTML = display(list);
+				}
+
+				function display( list ) {
+					var contents = ""
+					for(var i = 0; i<5;i++)
+						contents += (
+							          '<div class="item" id="the'+i+'paragraph" style="text-align:center">'
+							        + '<h2>'
+							        +     list[i].name 
+							        + '</h2>'
+									+ "Description : " 
+									+ list[i].description 
+									+ "<br>" 
+									+ "Cost : " 
+									+ list[i].cost 
+									+ "<br>" 
+									+ 'TotalCost : <span id="totalcost' + i +'">' 
+									+ list[i].totalCost 
+									+ ' </span> <br>'
+									+ 'Quantity : <span id="quantity' + i +'">'
+									+ list[i].quantity 
+									+' </span> <br><br>'
+									+ '<button type="button" onclick="amountandtotalChange('+i+', 1);"> + </button>'
+									+ '<button type="button" onclick="amountandtotalChange('+i+', -1);"> - </button> <br><br></div>');
+					
+					contents += ('<div style="text-align:center">TheWholeOrderCost : <span id="sumcost">' + sumCost + ' </span></div>');
+					return contents;
+				}
+
+				function amountandtotalChange(i, amount){
+
+					list[i].quantity += amount;
+					if(list[i].quantity <= 0){
+						list[i].quantity = 0;
+						hidparagraph(i);
+					}
+					list[i].totalCost += (amount * list[i].cost);
+					if(list[i].totalCost <= 0){
+						list[i].totalCost = 0;
+					}
+					if(list[i].totalCost > 0){
+						sumCost += (amount * list[i].cost);
+					}
+
+					document.getElementById('quantity' + i).innerHTML = list[i].quantity;
+				    document.getElementById('totalcost' + i).innerHTML = list[i].totalCost;
+				    document.getElementById("sumcost").innerHTML = sumCost;
+
+				}
+
+				function hidparagraph(i) {
+					document.getElementById('the'+i+'paragraph').className = ("quantityzero");
+				}
+
+			</script>
+
+		</head>
+
+		<body>
+			<style>
+				.item {
+					border: 1px solid red !important;
+				}
+
+				.quantityzero {
+					display: none;
+				}
+
+	 		</style>
+
+			<div id="currentList"> </div>
+
+			<h1>hello</h1> 
+		</body>
+
+
+	</html>
+
